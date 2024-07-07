@@ -1,0 +1,231 @@
+[gd_scene load_steps=24 format=3 uid="uid://ctrd5iajlxku8"]
+
+[ext_resource type="Script" path="res://Node3D.gd" id="1_te1x2"]
+
+[sub_resource type="Environment" id="Environment_jyqyq"]
+background_mode = 2
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7pl1"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c7sb7"]
+material = SubResource("StandardMaterial3D_r7pl1")
+size = Vector2(2, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jmk87"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1f8mm"]
+albedo_color = Color(0.929412, 0.639216, 0, 0.513726)
+
+[sub_resource type="SphereMesh" id="SphereMesh_8wttj"]
+material = SubResource("StandardMaterial3D_1f8mm")
+radius = 0.125
+height = 0.25
+radial_segments = 32
+rings = 16
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7s242"]
+radius = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dr5q8"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7eae2"]
+material = SubResource("StandardMaterial3D_dr5q8")
+top_radius = 0.01
+bottom_radius = 0.05
+height = 0.25
+radial_segments = 16
+rings = 2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xjoui"]
+height = 0.1
+radius = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isg0c"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_18kkk"]
+material = SubResource("StandardMaterial3D_isg0c")
+radius = 0.125
+height = 0.25
+radial_segments = 32
+rings = 16
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3vngc"]
+radius = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wmcde"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_e7y20"]
+material = SubResource("StandardMaterial3D_wmcde")
+top_radius = 0.01
+bottom_radius = 0.05
+height = 0.25
+radial_segments = 16
+rings = 2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c84ed"]
+height = 0.1
+radius = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mcak7"]
+albedo_color = Color(1, 0.141176, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_wlts5"]
+material = SubResource("StandardMaterial3D_mcak7")
+radius = 0.125
+height = 0.25
+radial_segments = 32
+rings = 16
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8vuwa"]
+radius = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_73tws"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xcyjo"]
+material = SubResource("StandardMaterial3D_73tws")
+top_radius = 0.01
+bottom_radius = 0.05
+height = 0.25
+radial_segments = 16
+rings = 2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c3bwh"]
+height = 0.1
+radius = 0.05
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_te1x2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jyqyq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, -0.5, 0, -0.707107, 0.707107, -0.707107, -0.5, -0.5, -1, 1, -1)
+layers = 0
+light_cull_mask = 4294967293
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DirectionalLight3D"]
+transform = Transform3D(1.78814e-07, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0.707107, 0.5, -0.5, 0, -0.585785, -3.41421)
+light_cull_mask = 4294967293
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.5, 0.5, -0.707107, -0.707107, 0.707107, 2.10734e-08, 0.5, 0.5, 0.707107, -1.41421, 8.42937e-08, 1.41421)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.44472e-08, 0.866025, 0.5, 1, 4.47035e-08, 0, -2.98023e-08, 0.5, -0.866025, -1, 0, 0)
+layers = 2
+mesh = SubResource("PlaneMesh_c7sb7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.48779e-07, -0.866025, 0.5, -1, -9.68575e-08, 7.45058e-08, 0, -0.5, -0.866025, 1, 0, 0)
+layers = 2
+mesh = SubResource("PlaneMesh_c7sb7")
+
+[node name="Area3D" type="Area3D" parent="."]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_jmk87")
+
+[node name="Area3D2" type="Area3D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+shape = SubResource("BoxShape3D_jmk87")
+
+[node name="Area3D3" type="Area3D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D3"]
+shape = SubResource("BoxShape3D_jmk87")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3D/Area3D"]
+mesh = SubResource("SphereMesh_8wttj")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marker3D/Area3D"]
+shape = SubResource("SphereShape3D_7s242")
+
+[node name="Area3D2" type="Area3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
+collision_layer = 0
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3D/Area3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_7eae2")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marker3D/Area3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_xjoui")
+
+[node name="Marker3D2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0.25, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="Marker3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+collision_layer = 2
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3D2/Area3D"]
+mesh = SubResource("SphereMesh_18kkk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marker3D2/Area3D"]
+shape = SubResource("SphereShape3D_3vngc")
+
+[node name="Area3D2" type="Area3D" parent="Marker3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.25)
+collision_layer = 0
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3D2/Area3D2"]
+mesh = SubResource("CylinderMesh_e7y20")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marker3D2/Area3D2"]
+shape = SubResource("CylinderShape3D_c84ed")
+
+[node name="Marker3D3" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.5, -0.866025, 0, 0.866025, -0.5, -0.5, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="Marker3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+collision_layer = 4
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3D3/Area3D"]
+mesh = SubResource("SphereMesh_wlts5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marker3D3/Area3D"]
+shape = SubResource("SphereShape3D_8vuwa")
+
+[node name="Area3D2" type="Area3D" parent="Marker3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.25)
+collision_layer = 0
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3D3/Area3D2"]
+mesh = SubResource("CylinderMesh_xcyjo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marker3D3/Area3D2"]
+shape = SubResource("CylinderShape3D_c3bwh")
+
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+[connection signal="area_exited" from="Area3D2" to="." method="_on_area_3d_2_area_exited"]
+[connection signal="area_exited" from="Area3D3" to="." method="_on_area_3d_3_area_exited"]
